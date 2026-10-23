@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Filip Bedoya</title>
+    <meta name="description" content="Filip Bedoya – Master's student in Visual Computing and Game Development at Matfyz, Charles University.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1d21;
+            --text: #33383f;
+            --muted: #6b737d;
+            --line: #e3e6ea;
+            --accent: #3498db;
+            --accent-dark: #1f6fa8;
+            --primary: #1e2a3a;
+            --primary-soft: #2c3e50;
+            --side-bg: #f4f7fa;
+            --page-bg: #eef0f2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 13px;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--page-bg);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .cv-container {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 32px auto;
+            background: #fff;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- HEADER --- */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 18px 14mm 16px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-soft) 100%);
+            color: #fff;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .profile-img {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .header-text {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #fff;
+            line-height: 1.15;
+        }
+
+        .header .tagline {
+            color: #9fd3ff;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+            font-size: 0.88em;
+            color: #fff;
+        }
+
+        .contact-info span + span::before {
+            content: "·";
+            margin: 0 7px;
+            color: #6fc3ff;
+        }
+
+        .contact-info a:hover {
+            color: #9fd3ff;
+        }
+
+        /* --- LAYOUT --- */
+        .main-content {
+            display: flex;
+            flex: 1;
+        }
+
+        .left-sidebar {
+            width: 31%;
+            flex-shrink: 0;
+            background: var(--side-bg);
+            border-right: 1px solid var(--line);
+            padding: 18px 16px 18px 14mm;
+        }
+
+        .right-content {
+            flex: 1;
+            min-width: 0;
+            padding: 18px 14mm 18px 22px;
+        }
+
+        .section {
+            margin-bottom: 16px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 0.78em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            font-weight: 700;
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 2px;
+            margin-bottom: 8px;
+        }
+
+        /* --- SIDEBAR --- */
+        .skill-group {
+            margin-bottom: 7px;
+        }
+
+        .skill-group strong {
+            display: block;
+            font-size: 0.85em;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .skill-group p {
+            color: var(--muted);
+            font-size: 0.92em;
+        }
+
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.92em;
+        }
+
+        .lang-item .level {
+            color: var(--muted);
+        }
+
+        .plain-list {
+            list-style: none;
+            color: var(--muted);
+            font-size: 0.92em;
+        }
+
+        /* --- ENTRIES --- */
+        .profile-text {
+            color: var(--text);
+        }
+
+        .entry {
+            margin-bottom: 9px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+        }
+
+        .entry-title {
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .entry-title a:hover {
+            color: var(--accent);
+        }
+
+        .entry-title a {
+            color: var(--accent-dark);
+        }
+
+        .entry-title a::after {
+            content: " ↗";
+            color: var(--accent);
+            font-size: 0.85em;
+        }
+
+        .entry-date {
+            font-size: 0.88em;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .entry-sub {
+            color: var(--muted);
+            font-size: 0.92em;
+        }
+
+        .entry-desc {
+            font-size: 0.94em;
+        }
+
+        .entry-desc strong {
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .entry-tech {
+            color: var(--muted);
+            font-size: 0.85em;
+        }
+
+        ul.entry-desc {
+            margin: 1px 0 0 15px;
+        }
+
+        @media screen and (max-width: 820px) {
+            html {
+                font-size: 14px;
+            }
+            .cv-container {
+                width: auto;
+                min-height: 0;
+                margin: 0;
+            }
+            .header {
+                padding: 20px 16px;
+            }
+            .left-sidebar, .right-content {
+                padding: 18px 16px;
+            }
+            .contact-info {
+                flex-wrap: wrap;
+            }
+            .main-content {
+                flex-direction: column;
+            }
+            .left-sidebar {
+                width: auto;
+                order: 2;
+            }
+        }
+
+        .fill {
+            background: #fff3b0;
+            color: #7a5b00;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .cv-container {
+                margin: 0;
+                height: 297mm;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+
+        <header class="header">
+            <img src="fotka.png" alt="Filip Bedoya" class="profile-img">
+            <div class="header-text">
+                <h1>Filip Bedoya</h1>
+                <div class="tagline">Software Engineer · C# &amp; C++ · MSc student, Charles University (Matfyz)</div>
+                <div class="contact-info">
+                    <span>Prague, Czechia</span>
+                    <span><a href="mailto:filipbedoya64@gmail.com">filipbedoya64@gmail.com</a></span>
+                    <span>+420 603 571 491</span>
+                    <span><a href="https://github.com/bedoyaf" target="_blank">github.com/bedoyaf</a></span>
+                    <span><a href="https://bedoyaf.itch.io" target="_blank">bedoyaf.itch.io</a></span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+
+            <aside class="left-sidebar">
+                <section class="section">
+                    <div class="section-title">Technical Skills</div>
+                    <div class="skill-group">
+                        <strong>Advanced</strong>
+                        <p>C#, C++, Unity</p>
+                    </div>
+                    <div class="skill-group">
+                        <strong>Intermediate</strong>
+                        <p>Python, Git, GitHub, SQL, Godot, C, Java</p>
+                    </div>
+                    <div class="skill-group">
+                        <strong>Practices &amp; Tools</strong>
+                        <p>Git branching, GitHub build pipelines, Scrum sprints, AI-enhanced prototyping and development (Claude)</p>
+                    </div>
+                    <div class="skill-group">
+                        <strong>Basic</strong>
+                        <p>Blender, Linux, HTML, CSS</p>
+                    </div>
+                    <div class="skill-group">
+                        <strong>Graphics &amp; AI</strong>
+                        <p>Shader Graph, HLSL, Procedural Generation, Parallel Computing, State Machines, Behaviour Trees, Evolutionary Algorithms</p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="section-title">Non-Technical Skills</div>
+                    <ul class="plain-list">
+                        <li>Teamwork &amp; Team Coordination</li>
+                        <li>Presenting Projects</li>
+                        <li>Event Management</li>
+                        <li>Budgeting &amp; Sponsorship</li>
+                    </ul>
+                </section>
+
+                <section class="section">
+                    <div class="section-title">Languages</div>
+                    <div class="lang-item"><span>Czech</span><span class="level">Native</span></div>
+                    <div class="lang-item"><span>Spanish</span><span class="level">Native</span></div>
+                    <div class="lang-item"><span>French</span><span class="level">Native</span></div>
+                    <div class="lang-item"><span>English</span><span class="level">C1</span></div>
+                </section>
+
+                <section class="section">
+                    <div class="section-title">Interests</div>
+                    <ul class="plain-list">
+                        <li>Community &amp; non-profits</li>
+                        <li>Hiking &amp; traveling</li>
+                        <li>Climbing</li>
+                    </ul>
+                </section>
+            </aside>
+
+            <main class="right-content">
+                <section class="section">
+                    <div class="section-title">About me</div>
+                    <p class="profile-text">
+                        CS Master's student at Charles University building software in small teams, mostly in C# and C++. I work in sprints with Git, prototype faster with AI tools like Claude, and present my projects to juries.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <div class="section-title">Education</div>
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">Master's – Visual Computing and Game Development</div>
+                            <div class="entry-date">2025 – present</div>
+                        </div>
+                        <div class="entry-sub">Charles University, Faculty of Mathematics and Physics</div>
+                        <div class="entry-desc">Expected graduation: 2027</div>
+                    </div>
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">Bachelor's – Computer Graphics, Vision and Game Development</div>
+                            <div class="entry-date">2022 – 2025</div>
+                        </div>
+                        <div class="entry-sub">Charles University, Faculty of Mathematics and Physics</div>
+                    </div>
+                    <div class="entry">
+                        <div class="entry-desc"><strong>Relevant courses:</strong> Advanced C#, Advanced C++, Operating Systems, Practical Aspects of Software Engineering</div>
+                    </div>
+                </section>
+
+
+
+                <section class="section">
+                    <div class="section-title">Selected Projects</div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title"><a href="https://bedoyaf.itch.io/fish-n-ships" target="_blank">Fish n' Ships</a> <span class="entry-sub">· Team software project</span></div>
+                            <div class="entry-date">2026</div>
+                        </div>
+                        <ul class="entry-desc">
+                            <li>Team of 4 over one semester, working in sprints with Git branching; <strong>main spokesperson</strong> and part of team coordination.</li>
+                            <li>Owned the combat system, AI (state machines) and game flow.</li>
+                            <li>Managed the team's GitHub build pipeline.</li>
+                        </ul>
+                        <div class="entry-tech">C# · Unity · Git · GitHub</div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title"><a href="https://bedoyaf.itch.io" target="_blank">Game Jams</a> <span class="entry-sub">· Teamwork under deadlines</span></div>
+                            <div class="entry-date">2025 – 2026</div>
+                        </div>
+                        <div class="entry-desc">Programmer in teams of 3–4, shipping a working project in 48 hours and presenting it to the jury and participants. <a href="https://bedoyaf.itch.io/over-the-alps" target="_blank"><strong>Over the Alps</strong></a> (Matfyz Game Jam 2026, 49 participants): <strong>1st in community vote</strong>, 3rd in jury ranking.</div>
+                        <div class="entry-tech">C# · Unity · Godot</div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title"><a href="https://dspace.cuni.cz/handle/20.500.11956/202610" target="_blank">Procedural Planets</a> <span class="entry-sub">· Bachelor thesis</span></div>
+                            <div class="entry-date">2025</div>
+                        </div>
+                        <div class="entry-desc">Procedural generation in C#: noise terrain, biome rules, custom HLSL shaders.</div>
+                        <div class="entry-tech">C# · HLSL · Unity</div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title"><a href="https://github.com/bedoyaf/alexandrias_village_master" target="_blank">Village Manager</a></div>
+                            <div class="entry-date">2023</div>
+                        </div>
+                        <div class="entry-desc">C++ application without an engine: own main loop, rendering and resources.</div>
+                        <div class="entry-tech">C++ · SFML</div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title"><a href="https://github.com/bedoyaf/computer_graphics_for_gamedev_project" target="_blank">Stylized Water Shaders</a></div>
+                            <div class="entry-date">2026</div>
+                        </div>
+                        <div class="entry-desc">Stylized water with Gerstner waves, depth coloring, foam and reflections. <span class="entry-tech">Shader Graph · C#</span></div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="section-title">Experience</div>
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">Mentor for First-Year Students</div>
+                            <div class="entry-date">2024 – present</div>
+                        </div>
+                        <div class="entry-sub">Faculty of Mathematics and Physics, Charles University</div>
+                        <div class="entry-desc">Helping first-year Bachelor's students settle into university and their studies.</div>
+                    </div>
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">Member &amp; Lead Event Organizer</div>
+                            <div class="entry-date">2022 – present</div>
+                        </div>
+                        <div class="entry-sub">Spolek Matfyzák (Student Association of MFF UK)</div>
+                        <ul class="entry-desc">
+                            <li>Executive board (2024 – 2026): leadership and financial planning.</li>
+                            <li>Led the Faculty Ball 2026: budget, logistics, marketing, volunteers.</li>
+                            <li>Secured sponsors, partners and faculty support for events.</li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
