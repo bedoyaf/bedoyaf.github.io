@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Filip Bedoya</title>
+    <meta name="description" content="Filip Bedoya – Master's student in Visual Computing and Game Development at Matfyz, Charles University.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --bg-color: #f8f9fa;
-            --text-color: #333;
+            --ink: #1a1d21;
+            --text: #33383f;
+            --muted: #6b737d;
+            --line: #e3e6ea;
+            --accent: #3498db;
+            --accent-dark: #1f6fa8;
+            --primary: #1e2a3a;
+            --primary-soft: #2c3e50;
+            --side-bg: #f4f7fa;
+            --page-bg: #eef0f2;
         }
 
         * {
@@ -18,407 +28,457 @@
             box-sizing: border-box;
         }
 
+        html {
+            font-size: 13px;
+        }
+
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #e9ecef;
-            color: var(--text-color);
-            line-height: 1.6;
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--page-bg);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
         .cv-container {
-            max-width: 1000px;
-            margin: 40px auto;
+            width: 210mm;
+            min-height: 297mm;
+            margin: 32px auto;
             background: #fff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
             display: flex;
             flex-direction: column;
         }
 
         /* --- HEADER --- */
         .header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 40px;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 18px 14mm 16px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-soft) 100%);
+            color: #fff;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .profile-img {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .header-text {
+            flex: 1;
+            min-width: 0;
         }
 
         .header h1 {
-            font-size: 2.8em;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
+            font-size: 2em;
+            font-weight: 700;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
+            color: #fff;
+            line-height: 1.15;
         }
 
-        .header h2 {
-            font-size: 1.2em;
-            color: var(--accent-color);
-            font-weight: 400;
-            margin-bottom: 20px;
+        .header .tagline {
+            color: #9fd3ff;
+            font-weight: 500;
+            margin-bottom: 6px;
         }
 
         .contact-info {
             display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-            font-size: 0.95em;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+            font-size: 0.88em;
+            color: #fff;
         }
 
-        .contact-info span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s;
+        .contact-info span + span::before {
+            content: "·";
+            margin: 0 7px;
+            color: #6fc3ff;
         }
 
         .contact-info a:hover {
-            border-bottom: 1px solid var(--accent-color);
-            color: var(--accent-color);
+            color: #9fd3ff;
         }
 
-        /* --- MAIN CONTENT --- */
+        /* --- LAYOUT --- */
         .main-content {
             display: flex;
-            flex-wrap: wrap;
-        }
-
-        /* --- LEFT SIDEBAR --- */
-        .left-sidebar {
             flex: 1;
-            min-width: 280px;
-            background-color: var(--bg-color);
-            padding: 35px;
-            border-right: 1px solid #eee;
-        }
-        
-        /* --- PROFILE IMAGE IN SIDEBAR --- */
-        .profile-img-container {
-            text-align: center;
-            margin-bottom: 30px;
         }
 
-        .profile-img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        .left-sidebar {
+            width: 31%;
+            flex-shrink: 0;
+            background: var(--side-bg);
+            border-right: 1px solid var(--line);
+            padding: 18px 16px 18px 14mm;
         }
 
-        .section-title-left {
-            font-size: 1.2em;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 5px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
+        .right-content {
+            flex: 1;
+            min-width: 0;
+            padding: 18px 14mm 18px 22px;
+        }
+
+        .section {
+            margin-bottom: 16px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 0.78em;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            font-weight: 700;
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 2px;
+            margin-bottom: 8px;
         }
 
+        /* --- SIDEBAR --- */
         .skill-group {
-            margin-bottom: 15px;
+            margin-bottom: 7px;
         }
-        
+
         .skill-group strong {
             display: block;
-            margin-bottom: 3px;
-            color: var(--primary-color);
+            font-size: 0.85em;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .skill-group p {
+            color: var(--muted);
+            font-size: 0.92em;
         }
 
         .lang-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 8px;
+            font-size: 0.92em;
         }
 
-        /* --- RIGHT CONTENT --- */
-        .right-content {
-            flex: 2;
-            min-width: 500px;
-            padding: 35px 45px;
+        .lang-item .level {
+            color: var(--muted);
         }
 
-        .section-title-right {
-            font-size: 1.5em;
-            color: var(--primary-color);
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            font-weight: 600;
+        .plain-list {
+            list-style: none;
+            color: var(--muted);
+            font-size: 0.92em;
         }
 
+        /* --- ENTRIES --- */
         .profile-text {
-            margin-bottom: 35px;
-            font-size: 1.05em;
-            color: #555;
-            text-align: justify;
+            color: var(--text);
         }
 
-        .timeline-item {
-            margin-bottom: 25px;
+        .entry {
+            margin-bottom: 9px;
         }
 
-        .timeline-header {
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-head {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;     
-            flex-wrap: wrap;             
-            gap: 8px 15px;               
-            margin-bottom: 8px;
+            align-items: baseline;
+            gap: 12px;
         }
 
-        .job-title {
-            font-size: 1.2em;
+        .entry-title {
             font-weight: 600;
-            color: var(--primary-color);
-            flex: 1;                    
-            min-width: 60%;               
+            color: var(--ink);
         }
 
-        .job-date {
-            font-size: 0.9em;
-            color: #777;
-            font-weight: 500;
-            background: #f1f1f1;
-            padding: 3px 10px;
-            border-radius: 4px;
-            white-space: nowrap;           
-            margin-left: auto;            
+        .entry-title a:hover {
+            color: var(--accent);
         }
 
-        .job-company {
-            font-size: 1em;
-            color: var(--accent-color);
-            font-weight: 500;
-            margin-bottom: 8px;
+        .entry-title a {
+            color: var(--accent-dark);
         }
 
-        .job-desc {
-            color: #555;
-            margin-left: 20px;
+        .entry-title a::after {
+            content: " ↗";
+            color: var(--accent);
+            font-size: 0.85em;
         }
 
-        .job-desc li {
-            margin-bottom: 5px;
+        .entry-date {
+            font-size: 0.88em;
+            color: var(--muted);
+            white-space: nowrap;
         }
 
-        @media (max-width: 768px) {
+        .entry-sub {
+            color: var(--muted);
+            font-size: 0.92em;
+        }
+
+        .entry-desc {
+            font-size: 0.94em;
+        }
+
+        .entry-desc strong {
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .entry-tech {
+            color: var(--muted);
+            font-size: 0.85em;
+        }
+
+        ul.entry-desc {
+            margin: 1px 0 0 15px;
+        }
+
+        @media screen and (max-width: 820px) {
+            html {
+                font-size: 14px;
+            }
+            .cv-container {
+                width: auto;
+                min-height: 0;
+                margin: 0;
+            }
+            .header {
+                padding: 20px 16px;
+            }
+            .left-sidebar, .right-content {
+                padding: 18px 16px;
+            }
+            .contact-info {
+                flex-wrap: wrap;
+            }
             .main-content {
                 flex-direction: column;
             }
             .left-sidebar {
-                border-right: none;
-                border-bottom: 1px solid #eee;
+                width: auto;
+                order: 2;
             }
-            .right-content {
-                min-width: 100%;
-                padding: 25px;
-            }
-            .timeline-header {
-                flex-direction: column;
-            }
-            .job-date {
-                margin-top: 5px;
-                display: inline-block;
-            }
-        }
-        .job-desc {
-            color: #555;
-            margin-left: 18px;
         }
 
+        .fill {
+            background: #fff3b0;
+            color: #7a5b00;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .cv-container {
+                margin: 0;
+                height: 297mm;
+                box-shadow: none;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="cv-container">
-        
-        <div class="header">
-            <h1>Filip Bedoya</h1>
-            <div class="contact-info">
-                <span>📍 Prague, Czechia</span>
-                <span>📧 <a href="mailto:filipbedoya64@gmail.com">filipbedoya64@gmail.com</a></span>
-                <span>📞 +420 603 571 491</span>
-                <span>🔗 <a href="https://github.com/bedoyaf" target="_blank">github.com/bedoyaf</a></span>
+
+        <header class="header">
+            <img src="fotka.png" alt="Filip Bedoya" class="profile-img">
+            <div class="header-text">
+                <h1>Filip Bedoya</h1>
+                <div class="tagline">Software Engineer &amp; Game Developer · MSc student, Charles University (Matfyz)</div>
+                <div class="contact-info">
+                    <span>Prague, Czechia</span>
+                    <span><a href="mailto:filipbedoya64@gmail.com">filipbedoya64@gmail.com</a></span>
+                    <span>+420 603 571 491</span>
+                    <span><a href="https://github.com/bedoyaf" target="_blank">github.com/bedoyaf</a></span>
+                    <span><a href="https://bedoyaf.itch.io" target="_blank">bedoyaf.itch.io</a></span>
+                </div>
             </div>
-        </div>
+        </header>
 
         <div class="main-content">
-            
-            <div class="left-sidebar">
-                
-                <div class="profile-img-container">
-                    <img src="fotka.png" alt="Filip Bedoya" class="profile-img">
-                </div>
 
-                <div class="section-title-left">Technical Skills</div>
-                <div class="skill-group">
-                    <strong>Advanced:</strong>
-                    C#, C++, Unity
-                </div>
-                <div class="skill-group">
-                    <strong>Intermediate:</strong>
-                    Godot, Python, C, Java, Office 365, LaTeX, Git, SQL
-                </div>
-                <div class="skill-group">
-                    <strong>Basic:</strong>
-                    Blender, Linux, HTML, CSS
-                </div>
-                <div class="skill-group">
-                    <strong>Concepts:</strong>
-                    Shaders, Procedural Content Generation, Parallel Computing, Prompt Engineering / LLMs
-                </div>
-
-                <div class="section-title-left">Non Technical Skills</div>
-                <div class="skill-group">
-                    <strong>Intermediate:</strong>
-                    Game Design, GUX
-                </div>
-
-                <br><br>
-                <div class="section-title-left">Languages</div>
-                <div class="lang-item">
-                    <span>Czech</span>
-                    <span>Native / Family</span>
-                </div>
-                <div class="lang-item">
-                    <span>Spanish</span>
-                    <span>Native / Family</span>
-                </div>
-                <div class="lang-item">
-                    <span>French</span>
-                    <span>Native / Family</span>
-                </div>
-                <div class="lang-item">
-                    <span>English</span>
-                    <span>C1 (Advanced)</span>
-                </div>
-
-                <br><br>
-                <div class="section-title-left">Interests</div>
-                <ul style="list-style-type: square; margin-left: 20px; color: #555;">
-                    <li>Game development</li>
-                    <li>Event organizing</li>
-                    <li>Community & Non-profit organizations</li>
-                    <li>Hiking & Traveling</li>
-                </ul>
-            </div>
-
-            <div class="right-content">
-                <div class="section-title-right">About me</div>
-                <div class="profile-text">
-                    I am a Computer Science and Game development student at Matfyz Charles University. My field is mainly software development, graphics and AI. I mainly worked on different study related or personal projects. 
-                </div>
-                
-                <div class="section-title-right">Education</div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div class="job-title">Master's Degree – Visual computing and Game Development(Mgr.)</div>
-                        <div class="job-date">2025 – present</div>
+            <aside class="left-sidebar">
+                <section class="section">
+                    <div class="section-title">Technical Skills</div>
+                    <div class="skill-group">
+                        <strong>Advanced</strong>
+                        <p>C#, C++, Unity</p>
                     </div>
-                    <div class="job-company">Charles University - Faculty of Mathematics and Physics, Prague</div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div class="job-title">Bachelor's Degree – Computer Science (Bc.)</div>
-                        <div class="job-date">2022 – 2025</div>
+                    <div class="skill-group">
+                        <strong>Intermediate</strong>
+                        <p>Python, Git, SQL, Godot, C, Java, LaTeX</p>
                     </div>
-                    <div class="job-company">Charles University - Faculty of Mathematics and Physics, Prague</div>
-                    <ul class="job-desc">
-                        <li>Specialization in Game Development.</li>
+                    <div class="skill-group">
+                        <strong>Practices &amp; Tools</strong>
+                        <p>Git branching, GitHub build pipelines, Scrum sprints, AI-assisted development (Claude)</p>
+                    </div>
+                    <div class="skill-group">
+                        <strong>Basic</strong>
+                        <p>Blender, Linux, HTML, CSS</p>
+                    </div>
+                    <div class="skill-group">
+                        <strong>Graphics</strong>
+                        <p>Shader Graph, HLSL, Procedural Generation, Parallel Computing</p>
+                    </div>
+                    <div class="skill-group">
+                        <strong>Game AI</strong>
+                        <p>Behaviour Trees, State Machines, Multi-Agent Systems, Evolutionary Algorithms</p>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="section-title">Non-Technical Skills</div>
+                    <ul class="plain-list">
+                        <li>Game Design, Game UX</li>
+                        <li>Budgeting &amp; Sponsorship</li>
+                        <li>Event Management</li>
                     </ul>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div class="job-title">High School Diploma</div>
-                        <div class="job-date">2018 – 2022</div>
-                    </div>
-                    <div class="job-company">Gymnázium Christiana Dopplera, Prague</div>
-                </div>
+                </section>
 
-                <div class="section-title-right">Work Experience</div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div class="job-title">Board Member & Lead Event Organizer</div>
-                        <div class="job-date">2024 – Present</div>
-                    </div>
-                    <div class="job-company">Spolek Matfyzák (Student Association of MFF UK)</div>
-                    <ul class="job-desc">
-                        <li>Serving on the executive board, participating in the leadership, decision-making, and financial planning of the student association.</li>
-                        <li>Successfully organized and managed the "Matfyzácký ples 2026" (Faculty Ball), overseeing budgeting, logistics, marketing, and the coordination of a dedicated volunteer team.</li>
-                        <li>Actively participating in the student community and negotiating with university faculty and external partners.</li>
+                <section class="section">
+                    <div class="section-title">Languages</div>
+                    <div class="lang-item"><span>Czech</span><span class="level">Native</span></div>
+                    <div class="lang-item"><span>Spanish</span><span class="level">Native</span></div>
+                    <div class="lang-item"><span>French</span><span class="level">Native</span></div>
+                    <div class="lang-item"><span>English</span><span class="level">C1</span></div>
+                </section>
+
+                <section class="section">
+                    <div class="section-title">Interests</div>
+                    <ul class="plain-list">
+                        <li>Community &amp; non-profits</li>
+                        <li>Hiking &amp; traveling</li>
+                        <li>Climbing</li>
                     </ul>
-                </div>
+                </section>
+            </aside>
 
-               <div class="section-title-right">Projects & Achievements</div>
+            <main class="right-content">
+                <section class="section">
+                    <div class="section-title">About me</div>
+                    <p class="profile-text">
+                        Software engineer and game developer, Master's student at Charles University. I work mainly in C# and C++, with advanced coursework in both, and build gameplay systems, AI and shaders in small teams.
+                    </p>
+                </section>
 
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div class="job-title">Bachelor Thesis</div>
-                        <div class="job-date">2025</div>
+                <section class="section">
+                    <div class="section-title">Education</div>
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">Master's – Visual Computing and Game Development</div>
+                            <div class="entry-date">2025 – present</div>
+                        </div>
+                        <div class="entry-sub">Charles University, Faculty of Mathematics and Physics</div>
+                        <div class="entry-desc">Expected graduation: 2027</div>
                     </div>
-                    <div class="job-company">Academic Project</div>
-                    <ul class="job-desc">
-                        <li>
-                            <strong>Procedural generation of planets in Unity</strong> –
-                            <a href="https://dspace.cuni.cz/handle/20.500.11956/202610" target="_blank">Thesis</a>
-                        </li>
-                        <li>
-                            <span style="color:#666;">Unity, C#, Shaders</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div class="job-title">Game Jams</div>
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">Bachelor's – Computer Graphics, Vision and Game Development</div>
+                            <div class="entry-date">2022 – 2025</div>
+                        </div>
+                        <div class="entry-sub">Charles University, Faculty of Mathematics and Physics</div>
                     </div>
-                    <div class="job-company">Game Development</div>
-                    <ul class="job-desc">
-                        <li>
-                            Participated in 5 game jams, delivering playable prototypes under 48h constraints –
-                            <a href="https://bedoyaf.itch.io/dvanact-mesicu" target="_blank">Link</a>
-                        </li>
-                        <li>
-                            <span style="color:#666;">Unity, C#</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-header">
-                        <div class="job-title">Personal Projects</div>
+                    <div class="entry">
+                        <div class="entry-desc"><strong>Relevant courses:</strong> Advanced C#, Advanced C++, Operating Systems, Practical Aspects of Software Engineering</div>
                     </div>
-                    <div class="job-company">Game Development</div>
-                    <ul class="job-desc">
-                        <li>
-                            Dungeon crawler –
-                            <a href="https://github.com/bedoyaf/dungeon_clawler_Moldus" target="_blank">GitHub</a>
-                        </li>
-                        <li>
-                            Endless runner –
-                            <a href="https://bedoyaf.itch.io/cuni-mff-ncgd008-25-26" target="_blank">Play</a>
-                        </li>
-                        <li>
-                            2D village manager (made without engine) –
-                            <a href="https://github.com/bedoyaf/alexandrias_village_master" target="_blank">GitHub</a>
-                        </li>
-                        <li>
-                            <span style="color:#666;">Unity, C#, C++, SFML</span>
-                        </li>
-                    </ul>
-                </div>
+                </section>
 
-            </div>
+                <section class="section">
+                    <div class="section-title">Experience</div>
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">Board Member &amp; Lead Event Organizer</div>
+                            <div class="entry-date">2024 – present</div>
+                        </div>
+                        <div class="entry-sub">Spolek Matfyzák (Student Association of MFF UK)</div>
+                        <ul class="entry-desc">
+                            <li>Executive board: leadership, decision-making and financial planning.</li>
+                            <li>Led the Faculty Ball 2026: budget, logistics, marketing and the volunteer team.</li>
+                            <li>Secured sponsors and partners and the faculty's support for association events.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <div class="section-title">Projects</div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title"><a href="https://dspace.cuni.cz/handle/20.500.11956/202610" target="_blank">Procedural Planets in Unity</a> <span class="entry-sub">· Bachelor thesis</span></div>
+                            <div class="entry-date">2025</div>
+                        </div>
+                        <div class="entry-desc">Planet generator with layered-noise terrain, biomes and custom triplanar shaders.</div>
+                        <div class="entry-tech">Unity · C# · Shaders · PCG</div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title"><a href="https://bedoyaf.itch.io/fish-n-ships" target="_blank">Fish n' Ships</a> <span class="entry-sub">· Team game</span></div>
+                            <div class="entry-date">2026</div>
+                        </div>
+                        <div class="entry-desc"><strong>Combat, AI and game-flow programmer</strong> in a team of 4 over one semester, working in sprints with Git branching. Built the combat system, enemy ship AI (state machines) and game flow, and wrote the GitHub build pipeline script.</div>
+                        <div class="entry-tech">Unity · C#</div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title"><a href="https://bedoyaf.itch.io" target="_blank">Game Jams</a></div>
+                            <div class="entry-date">2025 – 2026</div>
+                        </div>
+                        <div class="entry-desc">48-hour jams as programmer in teams of 3–4. <a href="https://bedoyaf.itch.io/over-the-alps" target="_blank"><strong>Over the Alps</strong></a> (Matfyz Game Jam 2026, 49 participants): <strong>1st in community vote</strong>, 3rd in jury ranking. <a href="https://bedoyaf.itch.io/dvanact-mesicu" target="_blank"><strong>Dvanáct měsíčků</strong></a> (GDS Prague Game Jam 2025).</div>
+                        <div class="entry-tech">Unity · Godot · C#</div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title"><a href="https://github.com/bedoyaf/computer_graphics_for_gamedev_project" target="_blank">Stylized Water Shaders</a></div>
+                            <div class="entry-date">2026</div>
+                        </div>
+                        <div class="entry-desc">Gerstner waves, depth coloring, edge foam, planar reflections and buoyancy, also on planet oceans.</div>
+                        <div class="entry-tech">Unity URP · Shader Graph · C#</div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title"><a href="https://github.com/bedoyaf/alexandrias_village_master" target="_blank">Village Manager</a></div>
+                            <div class="entry-date">2023</div>
+                        </div>
+                        <div class="entry-desc">Village management game with no engine: designed its own game loop, rendering and resource systems.</div>
+                        <div class="entry-tech">C++ · SFML</div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-desc"><strong>Other projects:</strong> <a href="https://github.com/bedoyaf/dungeon_clawler_Moldus" target="_blank"><strong>Moldus</strong></a>, a roguelite with procedural dungeons · <a href="https://bedoyaf.itch.io/cuni-mff-ncgd008-25-26" target="_blank"><strong>Endless Runner</strong></a>, published on itch.io. <span class="entry-tech">Unity · C#</span></div>
+                    </div>
+                </section>
+            </main>
         </div>
     </div>
 </body>
